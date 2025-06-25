@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { GraduationCap, Users, Trophy, BookOpen, Code, DollarSign } from "lucide-react";
+import { Users, Trophy, BookOpen, Code, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import EmailCollectionForm from "@/components/EmailCollectionForm";

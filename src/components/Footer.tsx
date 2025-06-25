@@ -1,6 +1,5 @@
 
 import { Link } from "react-router-dom";
-import { GraduationCap } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -8,12 +7,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <GraduationCap className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Ed3Hub
-            </span>
+            <img 
+              src="/lovable-uploads/01ea4b2e-e405-455d-bcd2-0b2f647fc6c2.png" 
+              alt="Ed3Hub"
+              className="h-8"
+            />
           </Link>
           
           <div className="flex items-center space-x-4">
