@@ -4,9 +4,12 @@ import { Clock, Users, Star, Code, BookOpen, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import EmailCollectionForm from "@/components/EmailCollectionForm";
+import Footer from "@/components/Footer";
 
 const Courses = () => {
   const [filter, setFilter] = useState("all");
+  const [showEmailForm, setShowEmailForm] = useState(false);
 
   const courses = [
     {
@@ -96,7 +99,7 @@ const Courses = () => {
             </span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Master Web3 technologies with our comprehensive courses designed by industry experts and community volunteers.
+            Master Web3 technologies with our comprehensive courses designed by industry experts and community contributors.
           </p>
         </div>
 
@@ -195,8 +198,11 @@ const Courses = () => {
                   Instructor: <span className="font-medium">{course.instructor}</span>
                 </div>
                 
-                <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
-                  Enroll Now
+                <Button 
+                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                  onClick={() => setShowEmailForm(true)}
+                >
+                  Get Notified
                 </Button>
               </CardContent>
             </Card>
@@ -212,12 +218,25 @@ const Courses = () => {
               Join our community of learners and start building the future of the internet. 
               Every course is designed to give you real-world skills you can use immediately.
             </p>
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
-              Start Learning Today
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+              onClick={() => setShowEmailForm(true)}
+            >
+              Join Waitlist
             </Button>
           </div>
         </div>
       </div>
+
+      <Footer />
+
+      <EmailCollectionForm
+        isOpen={showEmailForm}
+        onClose={() => setShowEmailForm(false)}
+        title="Get Course Updates"
+        description="Be the first to know when this course becomes available on Ed3Hub."
+      />
     </div>
   );
 };

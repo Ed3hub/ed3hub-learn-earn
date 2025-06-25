@@ -1,10 +1,16 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GraduationCap, Users, Trophy, BookOpen, Code, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import EmailCollectionForm from "@/components/EmailCollectionForm";
+import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [showExploreForm, setShowExploreForm] = useState(false);
+  const [showGetStartedForm, setShowGetStartedForm] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
       {/* Hero Section */}
@@ -19,11 +25,15 @@ const Index = () => {
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Join Ed3Hub, the community-driven platform where you can master Web3 technologies, 
-            contribute to the ecosystem, and earn while you learn. Built by volunteers, for the community.
+            contribute to the ecosystem, and earn while you learn. Built by the community, for the community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
-              <Link to="/courses">Explore Courses</Link>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+              onClick={() => setShowExploreForm(true)}
+            >
+              Explore Courses
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link to="/join-us">Join Our Mission</Link>
@@ -54,7 +64,7 @@ const Index = () => {
                 <Users className="w-12 h-12 text-blue-600 mb-4" />
                 <CardTitle>Community-Driven</CardTitle>
                 <CardDescription>
-                  Built by passionate volunteers who believe in democratizing Web3 education and fostering inclusive growth.
+                  Built by passionate contributors who believe in democratizing Web3 education and fostering inclusive growth.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -72,26 +82,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center text-white">
-            <div>
-              <div className="text-4xl font-bold mb-2">10+</div>
-              <div className="text-purple-100">Expert-Led Courses</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-purple-100">Community Members</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-purple-100">Volunteer-Driven</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
@@ -99,11 +89,31 @@ const Index = () => {
           <p className="text-lg text-gray-600 mb-8">
             Join thousands of learners who are building the future of the internet, one course at a time.
           </p>
-          <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
-            <Link to="/courses">Get Started Today</Link>
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+            onClick={() => setShowGetStartedForm(true)}
+          >
+            Get Started Today
           </Button>
         </div>
       </section>
+
+      <Footer />
+
+      <EmailCollectionForm
+        isOpen={showExploreForm}
+        onClose={() => setShowExploreForm(false)}
+        title="Get Early Access to Courses"
+        description="Be the first to know when Ed3Hub launches with our comprehensive Web3 courses."
+      />
+
+      <EmailCollectionForm
+        isOpen={showGetStartedForm}
+        onClose={() => setShowGetStartedForm(false)}
+        title="Join the Waitlist"
+        description="Get notified when Ed3Hub is ready and start your Web3 learning journey."
+      />
     </div>
   );
 };

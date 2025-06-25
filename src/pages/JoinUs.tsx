@@ -3,6 +3,7 @@ import { Heart, Code, Palette, MessageSquare, BookOpen, Users, Lightbulb, Globe 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Footer from "@/components/Footer";
 
 const JoinUs = () => {
   const roles = [
@@ -64,6 +65,10 @@ const JoinUs = () => {
     "Recognition in our contributor hall of fame",
     "Potential future opportunities as we grow"
   ];
+
+  const handleApplyClick = () => {
+    window.location.href = "mailto:ed3hub@gmail.com?subject=Volunteer Application&body=Hi Ed3Hub team,%0D%0A%0D%0AI'm interested in volunteering with Ed3Hub. Please let me know how I can contribute.%0D%0A%0D%0ABest regards,";
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -141,7 +146,10 @@ const JoinUs = () => {
                     </div>
                   </div>
                   
-                  <Button className="mt-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+                  <Button 
+                    className="mt-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                    onClick={handleApplyClick}
+                  >
                     Apply for This Role
                   </Button>
                 </CardContent>
@@ -196,7 +204,11 @@ const JoinUs = () => {
               Every contribution, no matter how small, helps democratize access to cutting-edge knowledge.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                onClick={handleApplyClick}
+              >
                 Start Your Application
               </Button>
               <Button variant="outline" size="lg" className="text-gray-900 border-gray-300 hover:bg-gray-50">
@@ -206,6 +218,8 @@ const JoinUs = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
