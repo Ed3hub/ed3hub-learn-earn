@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 const JoinUs = () => {
   const handleContactClick = () => {
-    window.location.href = "mailto:ed3hub@gmail.com?subject=Interest in Ed3Hub Project&body=Hi Ed3Hub team,%0D%0A%0D%0AI'm interested in learning more about how my expertise can contribute to the Ed3Hub project. I'd love to discuss potential collaboration opportunities.%0D%0A%0D%0ABest regards,";
+    window.open('https://x.com/ed3hub', '_blank');
   };
 
   const features = [

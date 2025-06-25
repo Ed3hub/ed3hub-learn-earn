@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface EmailCollectionFormProps {
   isOpen: boolean;
@@ -30,17 +31,42 @@ const EmailCollectionForm = ({ isOpen, onClose, title, description }: EmailColle
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const { error } = await supabase
+        .from('email')
+        .insert([
+          {
+            name: name.trim(),
+            email: email.trim()
+          }
+        ]);
+
+      if (error) {
+        console.error('Supabase error:', error);
+        toast({
+          title: "Error",
+          description: "Failed to save your information. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Thank you!",
+          description: "We'll notify you when Ed3Hub is ready.",
+        });
+        setName("");
+        setEmail("");
+        onClose();
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
       toast({
-        title: "Thank you!",
-        description: "We'll notify you when Ed3Hub is ready.",
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
       });
-      setName("");
-      setEmail("");
+    } finally {
       setIsSubmitting(false);
-      onClose();
-    }, 1000);
+    }
   };
 
   return (
