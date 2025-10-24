@@ -170,6 +170,18 @@ const Courses = () => {
     },
     {
       id: 14,
+      title: "Machine Learning Engineering",
+      description: "Build and deploy ML models, master MLOps, model optimization, and production-ready pipelines.",
+      category: "technical",
+      level: "Advanced",
+      duration: "12 weeks",
+      students: 1789,
+      rating: 4.9,
+      instructor: "Dr. Priya Sharma",
+      image: "photo-1555949963-aa79dcee981c"
+    },
+    {
+      id: 15,
       title: "Product Management Essentials",
       description: "Learn product strategy, roadmapping, user research, and stakeholder management.",
       category: "non-technical",
