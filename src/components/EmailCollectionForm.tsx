@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 
 interface EmailCollectionFormProps {
   isOpen: boolean;
@@ -12,6 +13,19 @@ interface EmailCollectionFormProps {
   title: string;
   description: string;
 }
+
+const emailSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, "Name is required")
+    .max(100, "Name must be less than 100 characters")
+    .regex(/^[a-zA-Z\s'-]+$/, "Name contains invalid characters"),
+  email: z.string()
+    .trim()
+    .email("Invalid email address")
+    .max(255, "Email is too long")
+    .toLowerCase()
+});
 
 const EmailCollectionForm = ({ isOpen, onClose, title, description }: EmailCollectionFormProps) => {
   const [name, setName] = useState("");
@@ -21,9 +35,14 @@ const EmailCollectionForm = ({ isOpen, onClose, title, description }: EmailColle
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) {
+    
+    const result = emailSchema.safeParse({ name, email });
+    
+    if (!result.success) {
+      const firstError = result.error.errors[0];
       toast({
-        title: "Please fill in all fields",
+        title: "Validation Error",
+        description: firstError.message,
         variant: "destructive",
       });
       return;
@@ -36,13 +55,12 @@ const EmailCollectionForm = ({ isOpen, onClose, title, description }: EmailColle
         .from('email')
         .insert([
           {
-            name: name.trim(),
-            email: email.trim()
+            name: result.data.name,
+            email: result.data.email
           }
         ]);
 
       if (error) {
-        console.error('Supabase error:', error);
         toast({
           title: "Error",
           description: "Failed to save your information. Please try again.",
@@ -58,7 +76,6 @@ const EmailCollectionForm = ({ isOpen, onClose, title, description }: EmailColle
         onClose();
       }
     } catch (error) {
-      console.error('Unexpected error:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
