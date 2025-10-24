@@ -12,12 +12,12 @@ const Index = () => {
   const [showGetStartedForm, setShowGetStartedForm] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
               Learn Web3.
             </span>
             <br />
@@ -30,7 +30,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+              className="bg-primary hover:bg-primary/90"
               onClick={() => setShowExploreForm(true)}
             >
               Explore Courses
@@ -49,9 +49,9 @@ const Index = () => {
             Why Choose Ed3Hub?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-purple-100 hover:shadow-lg transition-shadow">
+            <Card className="border-blue-100 hover:shadow-lg transition-shadow">
               <CardHeader>
-                <BookOpen className="w-12 h-12 text-purple-600 mb-4" />
+                <BookOpen className="w-12 h-12 text-blue-600 mb-4" />
                 <CardTitle>Comprehensive Learning</CardTitle>
                 <CardDescription>
                   From blockchain basics to advanced DeFi protocols, we cover both technical and non-technical aspects of Web3.
@@ -91,7 +91,7 @@ const Index = () => {
           </p>
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+            className="bg-primary hover:bg-primary/90"
             onClick={() => setShowGetStartedForm(true)}
           >
             Get Started Today

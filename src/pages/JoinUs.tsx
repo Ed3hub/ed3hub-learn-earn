@@ -43,7 +43,7 @@ const JoinUs = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
               Join Our Mission
             </span>
           </h1>
@@ -54,10 +54,10 @@ const JoinUs = () => {
         </div>
 
         {/* Vision Section */}
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-12 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-2xl p-8 mb-12 text-white">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-            <p className="text-purple-100 max-w-2xl mx-auto text-lg">
+            <p className="text-blue-100 max-w-2xl mx-auto text-lg">
               We believe Web3 education should be accessible, community-driven, and built by people who truly understand 
               the transformative power of decentralized technologies.
             </p>
@@ -73,8 +73,8 @@ const JoinUs = () => {
             {features.map((feature, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow h-full">
                 <CardHeader className="text-center">
-                  <div className="mx-auto p-3 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg w-fit mb-4">
-                    <feature.icon className="w-8 h-8 text-purple-600" />
+                  <div className="mx-auto p-3 bg-blue-100 rounded-lg w-fit mb-4">
+                    <feature.icon className="w-8 h-8 text-blue-600" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                   <CardDescription className="text-center">{feature.description}</CardDescription>
@@ -89,7 +89,7 @@ const JoinUs = () => {
           <h2 className="text-2xl font-bold text-center mb-8 text-gray-900">Why Join Ed3Hub?</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-purple-600">For Educators & Content Creators</h3>
+              <h3 className="text-lg font-semibold mb-4 text-blue-600">For Educators & Content Creators</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>• Share your knowledge with a global audience</li>
                 <li>• Build your reputation in the Web3 space</li>
@@ -112,7 +112,7 @@ const JoinUs = () => {
         {/* CTA Section */}
         <div className="text-center">
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
-            <Mail className="w-16 h-16 mx-auto mb-4 text-purple-400" />
+            <Mail className="w-16 h-16 mx-auto mb-4 text-blue-400" />
             <h2 className="text-3xl font-bold mb-4">Ready to Explore Opportunities?</h2>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Whether you're an educator, developer, content creator, or Web3 enthusiast, we'd love to hear from you. 
@@ -121,7 +121,7 @@ const JoinUs = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                className="bg-primary hover:bg-primary/90"
                 onClick={handleContactClick}
               >
                 Contact Us

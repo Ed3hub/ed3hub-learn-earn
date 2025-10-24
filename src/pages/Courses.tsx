@@ -202,7 +202,7 @@ const Courses = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
               Explore Our Courses
             </span>
           </h1>
@@ -218,8 +218,8 @@ const Courses = () => {
               onClick={() => setFilter("all")}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 filter === "all"
-                  ? "bg-purple-600 text-white"
-                  : "text-gray-700 hover:text-purple-600"
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-700 hover:text-blue-600"
               }`}
             >
               All Courses
@@ -228,8 +228,8 @@ const Courses = () => {
               onClick={() => setFilter("technical")}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 filter === "technical"
-                  ? "bg-purple-600 text-white"
-                  : "text-gray-700 hover:text-purple-600"
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-700 hover:text-blue-600"
               }`}
             >
               <Code className="w-4 h-4 inline mr-2" />
@@ -239,8 +239,8 @@ const Courses = () => {
               onClick={() => setFilter("non-technical")}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 filter === "non-technical"
-                  ? "bg-purple-600 text-white"
-                  : "text-gray-700 hover:text-purple-600"
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-700 hover:text-blue-600"
               }`}
             >
               <BookOpen className="w-4 h-4 inline mr-2" />
@@ -253,7 +253,7 @@ const Courses = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCourses.map((course) => (
             <Card key={course.id} className="overflow-hidden hover:shadow-lg transition-shadow group">
-              <div className="aspect-video bg-gradient-to-br from-purple-100 to-blue-100 relative overflow-hidden">
+              <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-50 relative overflow-hidden">
                 <img
                   src={`https://images.unsplash.com/${course.image}?auto=format&fit=crop&w=400&q=80`}
                   alt={course.title}
@@ -307,7 +307,7 @@ const Courses = () => {
                 </div>
                 
                 <Button 
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                  className="w-full bg-primary hover:bg-primary/90"
                   onClick={() => setShowEmailForm(true)}
                 >
                   Get Notified
@@ -320,7 +320,7 @@ const Courses = () => {
         {/* CTA Section */}
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 shadow-sm border">
-            <TrendingUp className="w-16 h-16 text-purple-600 mx-auto mb-4" />
+            <TrendingUp className="w-16 h-16 text-blue-600 mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-4">Ready to Level Up Your Skills?</h2>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Join our community of learners and master the skills that matter. 
@@ -328,7 +328,7 @@ const Courses = () => {
             </p>
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+              className="bg-primary hover:bg-primary/90"
               onClick={() => setShowEmailForm(true)}
             >
               Join Waitlist
