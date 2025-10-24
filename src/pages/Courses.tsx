@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Users, Star, Code, BookOpen, TrendingUp } from "lucide-react";
+import { Clock, Users, Star, Code, BookOpen, TrendingUp, Database, Shield, PenTool, Palette, Cloud } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,6 +38,54 @@ const Courses = () => {
     },
     {
       id: 3,
+      title: "Data Engineering Fundamentals",
+      description: "Master data pipelines, ETL processes, and big data technologies like Spark and Kafka.",
+      category: "technical",
+      level: "Intermediate",
+      duration: "10 weeks",
+      students: 1543,
+      rating: 4.9,
+      instructor: "James Patterson",
+      image: "photo-1551288049-bebda4e38f71"
+    },
+    {
+      id: 4,
+      title: "Cybersecurity Essentials",
+      description: "Learn network security, ethical hacking, penetration testing, and threat detection.",
+      category: "technical",
+      level: "Intermediate",
+      duration: "8 weeks",
+      students: 2156,
+      rating: 4.8,
+      instructor: "Maya Johnson",
+      image: "photo-1550751827-4bd374c3f58b"
+    },
+    {
+      id: 5,
+      title: "Technical Writing for Developers",
+      description: "Create clear documentation, API guides, and technical content that developers love.",
+      category: "non-technical",
+      level: "Beginner",
+      duration: "5 weeks",
+      students: 987,
+      rating: 4.7,
+      instructor: "Rachel Green",
+      image: "photo-1455390582262-044cdead277a"
+    },
+    {
+      id: 6,
+      title: "Creative Writing Masterclass",
+      description: "Develop your storytelling skills, craft compelling narratives, and find your unique voice.",
+      category: "non-technical",
+      level: "Beginner",
+      duration: "6 weeks",
+      students: 1876,
+      rating: 4.9,
+      instructor: "Thomas Wright",
+      image: "photo-1471107340929-a87cd0f5b5f3"
+    },
+    {
+      id: 7,
       title: "DeFi Protocol Analysis",
       description: "Understand how decentralized finance protocols work and their economic models.",
       category: "non-technical",
@@ -49,7 +97,7 @@ const Courses = () => {
       image: "photo-1486312338219-ce68d2c6f44d"
     },
     {
-      id: 4,
+      id: 8,
       title: "Web3 Frontend Development",
       description: "Build decentralized applications using React, Web3.js, and modern development tools.",
       category: "technical",
@@ -61,7 +109,43 @@ const Courses = () => {
       image: "photo-1498050108023-c5249f4df085"
     },
     {
-      id: 5,
+      id: 9,
+      title: "Cloud Computing & DevOps",
+      description: "Master AWS, Docker, Kubernetes, CI/CD pipelines, and modern infrastructure practices.",
+      category: "technical",
+      level: "Intermediate",
+      duration: "9 weeks",
+      students: 1832,
+      rating: 4.8,
+      instructor: "Carlos Mendez",
+      image: "photo-1451187580459-43490279c0fa"
+    },
+    {
+      id: 10,
+      title: "UI/UX Design with Figma",
+      description: "Design beautiful, user-centered interfaces and prototypes using industry-standard tools.",
+      category: "technical",
+      level: "Beginner",
+      duration: "7 weeks",
+      students: 2341,
+      rating: 4.9,
+      instructor: "Sophie Martinez",
+      image: "photo-1561070791-2526d30994b5"
+    },
+    {
+      id: 11,
+      title: "Digital Marketing Strategy",
+      description: "Learn SEO, content marketing, social media strategy, and analytics to grow your brand.",
+      category: "non-technical",
+      level: "Beginner",
+      duration: "6 weeks",
+      students: 1654,
+      rating: 4.6,
+      instructor: "Amanda Cooper",
+      image: "photo-1460925895917-afdab827c52f"
+    },
+    {
+      id: 12,
       title: "NFT Marketplace Business Models",
       description: "Explore the business side of NFTs, marketplaces, and digital asset monetization.",
       category: "non-technical",
@@ -73,7 +157,7 @@ const Courses = () => {
       image: "photo-1519389950473-47ba0277781c"
     },
     {
-      id: 6,
+      id: 13,
       title: "Advanced Cryptography for Developers",
       description: "Deep dive into cryptographic primitives, zero-knowledge proofs, and privacy solutions.",
       category: "technical",
@@ -82,7 +166,19 @@ const Courses = () => {
       students: 321,
       rating: 4.8,
       instructor: "Dr. Lisa Wang",
-      image: "photo-1461749280684-dccba630e2f6"
+      image: "photo-1526374965328-7f61d4dc18c5"
+    },
+    {
+      id: 14,
+      title: "Product Management Essentials",
+      description: "Learn product strategy, roadmapping, user research, and stakeholder management.",
+      category: "non-technical",
+      level: "Intermediate",
+      duration: "8 weeks",
+      students: 1432,
+      rating: 4.7,
+      instructor: "Nina Patel",
+      image: "photo-1454165804606-c3d57bc86b40"
     }
   ];
 
@@ -95,11 +191,11 @@ const Courses = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Web3 Courses
+              Explore Our Courses
             </span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Master Web3 technologies with our comprehensive courses designed by industry experts and community contributors.
+            From Web3 to Data Engineering, Cybersecurity to Creative Writing - master in-demand skills with courses designed by industry experts.
           </p>
         </div>
 
@@ -213,10 +309,10 @@ const Courses = () => {
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 shadow-sm border">
             <TrendingUp className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-4">Ready to Level Up Your Web3 Skills?</h2>
+            <h2 className="text-2xl font-bold mb-4">Ready to Level Up Your Skills?</h2>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Join our community of learners and start building the future of the internet. 
-              Every course is designed to give you real-world skills you can use immediately.
+              Join our community of learners and master the skills that matter. 
+              Every course is designed to give you real-world knowledge you can apply immediately.
             </p>
             <Button 
               size="lg" 
