@@ -1,6 +1,6 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Users, Home } from "lucide-react";
+import { Users, Home, BookOpen } from "lucide-react";
 
 const Navigation = () => {
   const location = useLocation();
@@ -26,8 +26,8 @@ const Navigation = () => {
               to="/"
               className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive("/")
-                  ? "text-purple-600 bg-purple-50"
-                  : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
               }`}
             >
               <Home className="w-4 h-4" />
@@ -38,19 +38,31 @@ const Navigation = () => {
               to="/courses"
               className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive("/courses")
-                  ? "text-purple-600 bg-purple-50"
-                  : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
               }`}
             >
               <span>Courses</span>
             </Link>
             
             <Link
+              to="/blog"
+              className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                isActive("/blog")
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+              }`}
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>Blog</span>
+            </Link>
+            
+            <Link
               to="/join-us"
               className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive("/join-us")
-                  ? "text-purple-600 bg-purple-50"
-                  : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
               }`}
             >
               <Users className="w-4 h-4" />
