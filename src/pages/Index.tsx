@@ -14,28 +14,37 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+          <div className="absolute top-40 right-1/4 w-64 h-64 bg-blue-300/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent inline-block animate-scale-in">
               Learn Web3.
             </span>
             <br />
-            <span className="text-gray-900">Grow Skills. Earn Rewards.</span>
+            <span className="text-gray-900 inline-block animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              Grow Skills. Earn Rewards.
+            </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
             Join Ed3Hub, the community-driven platform where you can master Web3 technologies, 
             contribute to the ecosystem, and earn while you learn. Built by the community, for the community.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90"
+              className="bg-primary hover:bg-primary/90 hover-scale"
               onClick={() => setShowExploreForm(true)}
             >
               Explore Courses
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="hover-scale">
               <Link to="/join-us">Join Our Mission</Link>
             </Button>
           </div>
