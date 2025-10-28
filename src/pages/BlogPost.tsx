@@ -24,6 +24,7 @@ const BlogPost = () => {
   }
 
   const isWeb3Post = post.slug === "getting-started-with-web3-development";
+  const isDataEngineeringPost = post.slug === "data-engineering-best-practices-2025";
 
   return (
     <>
@@ -330,6 +331,136 @@ contract HelloWeb3 {
                 <p className="text-gray-700 leading-relaxed mt-4">
                   So start experimenting, keep learning, and be part of the future. The decentralized web is waiting for you to build it.
                 </p>
+              </section>
+            </div>
+          ) : isDataEngineeringPost && post.content ? (
+            <div className="prose prose-lg max-w-none">
+              <section className="mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Introduction</h2>
+                <p className="text-gray-700 leading-relaxed">
+                  {post.content.introduction}
+                </p>
+              </section>
+
+              {post.content.sections.map((section, index) => (
+                <section key={index} className="mb-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{section.title}</h2>
+                  
+                  {section.content === "table:evolution" ? (
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                        <thead className="bg-blue-50">
+                          <tr>
+                            <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Era</th>
+                            <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Focus</th>
+                            <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Key Technologies</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-200">
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">2010–2015</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">ETL and Warehousing</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Hadoop, Spark, SQL</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">2016–2020</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Cloud Data Warehouses</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">BigQuery, Snowflake, Redshift</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">2021–2024</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Modern Data Stack</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">dbt, Airflow, Fivetran, Looker</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">2025 →</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">AI-Powered & Real-Time Systems</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Data Mesh, LLMOps, Streaming ETL, Delta Live Tables</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p className="text-gray-700 mt-4">
+                        By 2025, AI, real-time data processing, and governance are no longer optional — they're at the heart of successful data engineering.
+                      </p>
+                    </div>
+                  ) : section.content === "table:modern-stack" ? (
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                        <thead className="bg-blue-50">
+                          <tr>
+                            <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Layer</th>
+                            <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Tools</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-200">
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">Ingestion</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Airbyte, Fivetran</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">Storage</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Snowflake, BigQuery, Delta Lake</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">Transformation</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">dbt, Spark</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">Orchestration</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Airflow, Dagster</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">Observability</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Monte Carlo, Soda</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">Governance</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Collibra, Atlan</td>
+                          </tr>
+                          <tr>
+                            <td className="px-6 py-4 text-sm text-gray-700">Visualization</td>
+                            <td className="px-6 py-4 text-sm text-gray-700">Looker, Power BI, Metabase</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                      {section.content.split('\n\n').map((paragraph, pIndex) => {
+                        if (paragraph.startsWith('•')) {
+                          const items = paragraph.split('\n');
+                          return (
+                            <ul key={pIndex} className="space-y-2 list-disc list-inside mb-4">
+                              {items.map((item, iIndex) => (
+                                <li key={iIndex}>{item.replace('• ', '')}</li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        return (
+                          <p key={pIndex} className="mb-4">
+                            {paragraph.split('**').map((text, tIndex) => 
+                              tIndex % 2 === 0 ? text : <strong key={tIndex}>{text}</strong>
+                            )}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  )}
+                </section>
+              ))}
+
+              <section className="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Master Data Engineering?</h2>
+                <p className="text-gray-700 mb-4">
+                  Join Ed3hub and learn from industry experts how to build scalable, secure, and modern data systems.
+                </p>
+                <Link 
+                  to="/courses" 
+                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Explore Our Courses
+                </Link>
               </section>
             </div>
           ) : (
