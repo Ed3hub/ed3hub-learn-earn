@@ -333,7 +333,7 @@ contract HelloWeb3 {
                 </p>
               </section>
             </div>
-          ) : isDataEngineeringPost && post.content ? (
+          ) : post.content ? (
             <div className="prose prose-lg max-w-none">
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Introduction</h2>
