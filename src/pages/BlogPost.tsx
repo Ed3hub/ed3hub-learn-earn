@@ -450,18 +450,34 @@ contract HelloWeb3 {
                 </section>
               ))}
 
-              <section className="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Master Data Engineering?</h2>
-                <p className="text-gray-700 mb-4">
-                  Join Ed3hub and learn from industry experts how to build scalable, secure, and modern data systems.
-                </p>
-                <Link 
-                  to="/courses" 
-                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Explore Our Courses
-                </Link>
-              </section>
+              {isDataEngineeringPost && (
+                <section className="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Master Data Engineering?</h2>
+                  <p className="text-gray-700 mb-4">
+                    Join Ed3hub and learn from industry experts how to build scalable, secure, and modern data systems.
+                  </p>
+                  <Link 
+                    to="/courses" 
+                    className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    Explore Our Courses
+                  </Link>
+                </section>
+              )}
+              {post.slug === "cybersecurity-threats-every-developer-should-know-2025" && (
+                <section className="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Master Cybersecurity Best Practices</h2>
+                  <p className="text-gray-700 mb-4">
+                    Join Ed3hub and learn from industry experts how to build secure, resilient applications that protect against modern threats.
+                  </p>
+                  <Link 
+                    to="/courses" 
+                    className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    Explore Our Courses
+                  </Link>
+                </section>
+              )}
             </div>
           ) : (
             <div className="prose prose-lg max-w-none">
