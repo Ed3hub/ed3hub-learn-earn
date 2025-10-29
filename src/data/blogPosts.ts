@@ -80,23 +80,23 @@ export const blogPosts: BlogPost[] = [
     author: "Ed3hub Team",
     keywords: "cybersecurity for developers, developer security best practices, 2025 cybersecurity threats, secure coding, AI-powered malware, API security, cloud security",
     content: {
-      introduction: "If you write code, you're already on the frontlines of cybersecurity — whether you realize it or not. Every line of code you ship can either fortify your product or open a new attack surface.\n\nThe truth? Cyber threats have evolved faster than ever. And in 2025, the cost of ignoring them isn't just a bug — it's brand damage, data loss, and broken trust.\n\nSo, let's break down the most critical cybersecurity threats every developer should know — and how to stay one step ahead.",
+      introduction: "If you write code, you're already on the frontlines of cybersecurity, whether you realize it or not. Every line of code you ship can either fortify your product or open a new attack surface.\n\nThe truth? Cyber threats have evolved faster than ever. And in 2025, the cost of ignoring them isn't just a bug: it's brand damage, data loss, and broken trust.\n\nSo, let's break down the most critical cybersecurity threats every developer should know and how to stay one step ahead.",
       sections: [
         {
           title: "1. Supply Chain Attacks: When Your Dependencies Betray You",
-          content: "Modern apps depend on thousands of third-party packages. But what happens when one of those packages gets compromised?\n\nThat's a **supply chain attack** — when hackers inject malicious code into trusted dependencies. The scary part? You might be installing the threat yourself without even knowing it.\n\n**What to Do:**\n\n• Use verified packages only and check their digital signatures\n• Regularly audit dependencies with tools like npm audit, Dependabot, or Snyk\n• Lock versions to prevent automatic updates from introducing malicious code\n\n**Pro tip:** Treat dependencies like strangers. Trust only after you verify."
+          content: "Modern apps depend on thousands of third-party packages. But what happens when one of those packages gets compromised?\n\nThat's a **supply chain attack**: when hackers inject malicious code into trusted dependencies. The scary part? You might be installing the threat yourself without even knowing it.\n\n**What to Do:**\n\n• Use verified packages only and check their digital signatures\n• Regularly audit dependencies with tools like npm audit, Dependabot, or Snyk\n• Lock versions to prevent automatic updates from introducing malicious code\n\n**Pro tip:** Treat dependencies like strangers. Trust only after you verify."
         },
         {
           title: "2. Social Engineering & Phishing 2.0",
-          content: "Hackers no longer just brute-force their way in — they trick you into opening the door. From fake GitHub login pages to AI-generated emails mimicking your CTO, social engineering is getting eerily realistic.\n\n**What to Do:**\n\n• Enable multi-factor authentication (MFA) everywhere\n• Double-check URLs and email domains before logging in\n• Educate your team — cybersecurity is everyone's job, not just IT's\n\n*\"The weakest link in any system is still the human behind the keyboard.\"*"
+          content: "Hackers no longer just brute-force their way in; they trick you into opening the door. From fake GitHub login pages to AI-generated emails mimicking your CTO, social engineering is getting eerily realistic.\n\n**What to Do:**\n\n• Enable multi-factor authentication (MFA) everywhere\n• Double-check URLs and email domains before logging in\n• Educate your team: cybersecurity is everyone's job, not just IT's\n\n*\"The weakest link in any system is still the human behind the keyboard.\"*"
         },
         {
           title: "3. AI-Powered Malware",
-          content: "AI isn't just helping developers — it's also helping hackers. In 2025, we're seeing AI-written malware that learns, adapts, and hides itself better than ever.\n\nThese intelligent threats can bypass traditional firewalls and antivirus by constantly rewriting their own signatures.\n\n**What to Do:**\n\n• Monitor network behavior, not just known signatures\n• Use AI-driven security tools that detect anomalies instead of known patterns\n• Keep your libraries and frameworks updated to patch known exploits"
+          content: "AI isn't just helping developers; it's also helping hackers. In 2025, we're seeing AI-written malware that learns, adapts, and hides itself better than ever.\n\nThese intelligent threats can bypass traditional firewalls and antivirus by constantly rewriting their own signatures.\n\n**What to Do:**\n\n• Monitor network behavior, not just known signatures\n• Use AI-driven security tools that detect anomalies instead of known patterns\n• Keep your libraries and frameworks updated to patch known exploits"
         },
         {
           title: "4. Cloud Misconfigurations",
-          content: "Moving to the cloud doesn't mean your data is automatically safe. A single misconfigured bucket or leaked API key can expose everything.\n\n**What to Do:**\n\n• Always apply least privilege access — give only the permissions needed\n• Rotate API keys and credentials regularly\n• Use tools like AWS Config, Azure Policy, or GCP Security Command Center for constant auditing\n\n**Over 80% of cloud breaches in 2024 were caused by human misconfiguration — not sophisticated hacks.**"
+          content: "Moving to the cloud doesn't mean your data is automatically safe. A single misconfigured bucket or leaked API key can expose everything.\n\n**What to Do:**\n\n• Always apply least privilege access: give only the permissions needed\n• Rotate API keys and credentials regularly\n• Use tools like AWS Config, Azure Policy, or GCP Security Command Center for constant auditing\n\n**Over 80% of cloud breaches in 2024 were caused by human misconfiguration, not sophisticated hacks.**"
         },
         {
           title: "5. API Exploits & Data Leaks",
@@ -104,7 +104,7 @@ export const blogPosts: BlogPost[] = [
         },
         {
           title: "6. Zero-Day Vulnerabilities",
-          content: "Zero-day exploits are like landmines — they strike before you even know they exist. Hackers exploit unknown vulnerabilities in your frameworks or libraries before patches are released.\n\n**What to Do:**\n\n• Follow trusted cybersecurity feeds and patch systems quickly\n• Run bug bounty programs or use platforms like HackerOne to crowdsource testing\n• Layer your security: don't rely on a single point of defense"
+          content: "Zero-day exploits are like landmines: they strike before you even know they exist. Hackers exploit unknown vulnerabilities in your frameworks or libraries before patches are released.\n\n**What to Do:**\n\n• Follow trusted cybersecurity feeds and patch systems quickly\n• Run bug bounty programs or use platforms like HackerOne to crowdsource testing\n• Layer your security and don't rely on a single point of defense"
         },
         {
           title: "7. Insider Threats",
@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
         },
         {
           title: "Final Thought from Ed3hub",
-          content: "Cybersecurity isn't just a security team's responsibility — it's part of modern software craftsmanship. As developers, our job is to write code that doesn't just run… but protects.\n\n**Start with these principles:**\n\n• Think security-first in every feature\n• Audit dependencies and code regularly\n• Educate your team and automate what you can\n\nBecause in 2025, the question isn't if your system will be targeted — it's how ready you'll be when it happens.\n\nAt Ed3hub, we believe developers should build with confidence — not fear. That's why we're helping creators and learners master both development and digital safety in the Web3 era.\n\n**Stay smart. Stay secure.**\n\nYour code is your castle — guard it well.\n\nLearn more about secure development practices at **ed3hub.com** — and earn while you learn."
+          content: "Cybersecurity isn't just a security team's responsibility: it's part of modern software craftsmanship. As developers, our job is to write code that doesn't just run, but protects.\n\n**Start with these principles:**\n\n• Think security-first in every feature\n• Audit dependencies and code regularly\n• Educate your team and automate what you can\n\nBecause in 2025, the question isn't if your system will be targeted: it's how ready you'll be when it happens.\n\nAt Ed3hub, we believe developers should build with confidence, not fear. That's why we're helping creators and learners master both development and digital safety in the Web3 era.\n\n**Stay smart. Stay secure.**\n\nYour code is your castle. Guard it well.\n\nLearn more about secure development practices at **ed3hub.com** and earn while you learn."
         }
       ]
     }
