@@ -32,16 +32,16 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center relative z-10 w-full">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent inline-block animate-[fade-in_1s_ease-out,scale-in_0.5s_ease-out] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]">
-              Master Web3.
+              Transform Your Skills.
             </span>
             <br />
             <span className="text-gray-900 inline-block animate-[fade-in_1s_ease-out_0.3s_both,slide-in-right_0.6s_ease-out_0.3s_both]">
-              Build the Future.
+              Shape Your Future.
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto animate-[fade-in_1s_ease-out_0.6s_both]">
-            Join Ed3Hub, the community-driven platform where you can master Web3 technologies, 
-            contribute to the ecosystem, and earn while you learn. Built by the community, for the community.
+            Join Ed3Hub, the community-driven platform where you can master cutting-edge technologies, 
+            contribute to innovative projects, and accelerate your career. Built by learners, for learners.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-[fade-in_1s_ease-out_0.9s_both]">
             <Button 
