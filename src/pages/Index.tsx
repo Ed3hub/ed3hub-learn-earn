@@ -32,11 +32,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center relative z-10 w-full">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent inline-block animate-[fade-in_1s_ease-out,scale-in_0.5s_ease-out] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]">
-              Learn Web3.
+              Master Web3.
             </span>
             <br />
             <span className="text-gray-900 inline-block animate-[fade-in_1s_ease-out_0.3s_both,slide-in-right_0.6s_ease-out_0.3s_both]">
-              Grow Skills. Earn Rewards.
+              Build the Future.
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto animate-[fade-in_1s_ease-out_0.6s_both]">
