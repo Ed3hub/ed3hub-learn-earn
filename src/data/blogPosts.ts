@@ -132,36 +132,36 @@ export const blogPosts: BlogPost[] = [
       introduction: "You've trained your machine learning model. It's accurate, it performs beautifully on your local machine… But now comes the real challenge: getting it into production.\n\nIn other words: How do you make your model accessible, scalable, and reliable enough for real users, not just Jupyter notebooks?\n\nWelcome to the world of Machine Learning Deployment: the bridge between data science and real-world impact.\n\nIn this guide, we'll break down everything you need to know to go from training to production like a pro.",
       sections: [
         {
-          title: "🧠 Step 1: Model Training — The Foundation",
-          content: "Everything begins here. Model training is where you teach your algorithm to recognize patterns from data.\n\nYou typically:\n\n• Gather and clean data\n• Split it into training, validation, and test sets\n• Select and train a model (say, XGBoost, BERT, or a neural network)\n• Evaluate metrics like accuracy, F1-score, or RMSE\n\n**💡 Pro Tip:** Always save your model after training using a framework's serializer:\n\n• `joblib` or `pickle` for Scikit-Learn\n• `torch.save()` for PyTorch\n• `model.save()` for TensorFlow/Keras\n\nThis makes it portable for deployment later."
+          title: "Step 1: Model Training — The Foundation",
+          content: "Everything begins here. Model training is where you teach your algorithm to recognize patterns from data.\n\nYou typically:\n\n• Gather and clean data\n• Split it into training, validation, and test sets\n• Select and train a model (say, XGBoost, BERT, or a neural network)\n• Evaluate metrics like accuracy, F1-score, or RMSE\n\n**Pro Tip:** Always save your model after training using a framework's serializer:\n\n• `joblib` or `pickle` for Scikit-Learn\n• `torch.save()` for PyTorch\n• `model.save()` for TensorFlow/Keras\n\nThis makes it portable for deployment later."
         },
         {
-          title: "⚙️ Step 2: Model Packaging — Preparing for the Real World",
+          title: "Step 2: Model Packaging — Preparing for the Real World",
           content: "Before deploying, you need to package your model so it can run consistently on other machines.\n\nThat means:\n\n• Freezing dependencies (use `requirements.txt` or `environment.yaml`)\n• Storing model weights, metadata, and version info\n• Optionally, wrapping your model in a Python API using Flask or FastAPI\n\n**Example:**\n\n```python\nfrom fastapi import FastAPI\nimport joblib\n\napp = FastAPI()\nmodel = joblib.load(\"model.pkl\")\n\n@app.post(\"/predict\")\ndef predict(data: dict):\n    prediction = model.predict([data['features']])\n    return {\"prediction\": prediction.tolist()}\n```\n\nNow your model can be accessed through an API endpoint: ready for real-time predictions."
         },
         {
-          title: "☁️ Step 3: Deployment Options — Choose Your Environment",
-          content: "You've got several paths for getting your model live, depending on scale, budget, and performance needs.\n\n**🚀 1. Local or On-Premise Deployment**\n\nPerfect for small internal use or testing environments. Use Docker to containerize your model for consistency.\n\n```bash\ndocker build -t ml-model .\ndocker run -p 8000:8000 ml-model\n```\n\n**🌐 2. Cloud Deployment**\n\nFor scalability and automation. Popular platforms include:\n\n• AWS SageMaker\n• Google Vertex AI\n• Azure ML Studio\n• Hugging Face Inference API\n\nThese handle everything: scaling, monitoring, versioning, and updates.\n\n**⚡ 3. Edge Deployment**\n\nFor models running on IoT or mobile devices (e.g., TensorFlow Lite, CoreML). Best when low latency or offline inference is needed."
+          title: "Step 3: Deployment Options — Choose Your Environment",
+          content: "You've got several paths for getting your model live, depending on scale, budget, and performance needs.\n\n**1. Local or On-Premise Deployment**\n\nPerfect for small internal use or testing environments. Use Docker to containerize your model for consistency.\n\n```bash\ndocker build -t ml-model .\ndocker run -p 8000:8000 ml-model\n```\n\n**2. Cloud Deployment**\n\nFor scalability and automation. Popular platforms include:\n\n• AWS SageMaker\n• Google Vertex AI\n• Azure ML Studio\n• Hugging Face Inference API\n\nThese handle everything: scaling, monitoring, versioning, and updates.\n\n**3. Edge Deployment**\n\nFor models running on IoT or mobile devices (e.g., TensorFlow Lite, CoreML). Best when low latency or offline inference is needed."
         },
         {
-          title: "🧩 Step 4: Monitoring and Model Drift",
-          content: "Once deployed, the job isn't over: it's just beginning. Models degrade over time as data changes: a phenomenon called **model drift**.\n\nTo combat that:\n\n• Log predictions and actual outcomes\n• Set up dashboards with tools like Prometheus, Grafana, or Weights & Biases\n• Retrain your model periodically when accuracy starts dropping\n\n**💡 Pro Tip:** Automate retraining pipelines using MLOps tools like MLflow, Kubeflow, or Airflow."
+          title: "Step 4: Monitoring and Model Drift",
+          content: "Once deployed, the job isn't over: it's just beginning. Models degrade over time as data changes: a phenomenon called **model drift**.\n\nTo combat that:\n\n• Log predictions and actual outcomes\n• Set up dashboards with tools like Prometheus, Grafana, or Weights & Biases\n• Retrain your model periodically when accuracy starts dropping\n\n**Pro Tip:** Automate retraining pipelines using MLOps tools like MLflow, Kubeflow, or Airflow."
         },
         {
-          title: "🧱 Step 5: Versioning and CI/CD for Models",
+          title: "Step 5: Versioning and CI/CD for Models",
           content: "Software engineers have CI/CD: ML engineers need it too.\n\n**Use:**\n\n• **DVC** (Data Version Control) or **MLflow** to track datasets and models\n• **GitHub Actions** or **GitLab CI** to automate deployment each time your model is updated\n• **Feature stores** (like Feast) to maintain consistent data across training and inference\n\nThis ensures that every new version of your model is reproducible and safely deployed."
         },
         {
-          title: "🧠 Step 6: Security, Ethics & Governance",
+          title: "Step 6: Security, Ethics & Governance",
           content: "Never overlook security. A single exposed model endpoint can leak private data or allow adversarial attacks.\n\n✅ Use HTTPS and token-based authentication\n✅ Validate input data before inference\n✅ Apply rate limiting and logging\n✅ Consider fairness and bias detection (using tools like IBM AI Fairness 360)\n\nRemember: production ML isn't just about performance: it's about trust and responsibility."
         },
         {
-          title: "🧩 Wrapping It All Up",
+          title: "Wrapping It All Up",
           content: "Deploying a machine learning model isn't just the \"last step\": it's an entire discipline. It blends data science, DevOps, and software engineering into one process we now call **MLOps**.\n\nHere's the quick roadmap to production success:\n\n1. Train and evaluate your model\n2. Package it with dependencies\n3. Deploy it in the right environment\n4. Monitor, retrain, and secure\n\nOnce you master deployment, your models stop being demos: and start driving real impact."
         },
         {
-          title: "✍️ Final Thought from Ed3hub",
-          content: "At Ed3hub, we believe great developers don't just build models: they bring them to life. That's why we're helping learners master MLOps, AI deployment, and scalable systems that power the next era of innovation.\n\nYour model isn't done when it's trained: it's done when it's trusted in production. 🚀\n\nLearn more at **ed3hub.com** and earn while you learn."
+          title: "Final Thought from Ed3hub",
+          content: "At Ed3hub, we believe great developers don't just build models: they bring them to life. That's why we're helping learners master MLOps, AI deployment, and scalable systems that power the next era of innovation.\n\nYour model isn't done when it's trained: it's done when it's trusted in production.\n\nLearn more at **ed3hub.com** and earn while you learn."
         }
       ]
     }
