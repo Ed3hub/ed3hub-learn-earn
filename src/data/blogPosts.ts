@@ -171,7 +171,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Art of Technical Writing: Communicating Complex Ideas Simply",
     excerpt: "Master the art of technical writing in 2025. Learn proven techniques to explain complex ideas simply and create documentation developers actually want to read.",
     category: "Technical Writing",
-    date: "2025-10-25",
+    date: "2025-10-31",
     readTime: "6 min read",
     tags: ["Documentation", "Writing", "Communication", "Developer Docs", "API Documentation"],
     slug: "art-of-technical-writing",
