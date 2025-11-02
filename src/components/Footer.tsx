@@ -8,9 +8,9 @@ const Footer = () => {
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/01ea4b2e-e405-455d-bcd2-0b2f647fc6c2.png" 
+              src="/ed3hub-logo.png" 
               alt="Ed3Hub"
-              className="h-8"
+              className="h-12"
             />
           </Link>
           
