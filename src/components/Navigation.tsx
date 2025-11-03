@@ -2,6 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { AdminVisitorCounter } from "./AdminVisitorCounter";
 
 const Navigation = () => {
   const location = useLocation();
@@ -31,8 +32,10 @@ const Navigation = () => {
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
+          <div className="hidden md:flex items-center space-x-4">
+            <AdminVisitorCounter />
+            <div className="flex space-x-8">
+              {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
@@ -42,9 +45,10 @@ const Navigation = () => {
                     : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                 }`}
               >
-                {link.label}
+              {link.label}
               </Link>
             ))}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
