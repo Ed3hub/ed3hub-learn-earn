@@ -56,16 +56,40 @@ const Blog = () => {
         <meta name="twitter:description" content="Expert articles on Web3, data engineering, cybersecurity, and more." />
       </Helmet>
 
-      <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <main className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background">
         <section className="pt-20 pb-12 px-4">
           <div className="max-w-7xl mx-auto">
-            <header className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Ed3Hub Blog
+            <header className="text-center mb-16 relative">
+              <div className="absolute inset-0 -z-10 overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl animate-pulse" />
+              </div>
+              
+              <div className="inline-block mb-6">
+                <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-1 text-sm font-medium">
+                  Latest Insights & Tutorials
+                </Badge>
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+                <span className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+                  Ed3Hub Blog
+                </span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in">
                 Stay ahead with the latest insights, tutorials, and best practices in Web3, data engineering, cybersecurity, and emerging technologies.
               </p>
+              
+              <div className="mt-8 flex items-center justify-center gap-8 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span>{blogPosts.length} Articles</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span>{Object.keys(categorizedPosts).length} Categories</span>
+                </div>
+              </div>
             </header>
 
             <Accordion type="multiple" className="space-y-4">
