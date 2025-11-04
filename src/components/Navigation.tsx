@@ -33,7 +33,6 @@ const Navigation = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <AdminVisitorCounter />
             <div className="flex space-x-8">
               {navLinks.map((link) => (
               <Link
