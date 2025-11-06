@@ -25,6 +25,7 @@ const BlogPost = () => {
 
   const isWeb3Post = post.slug === "getting-started-with-web3-development";
   const isDataEngineeringPost = post.slug === "data-engineering-best-practices-2025";
+  const isCloudNativePost = post.slug === "building-scalable-applications-with-cloud-native-architecture";
 
   return (
     <>
@@ -34,6 +35,16 @@ const BlogPost = () => {
         <meta name="keywords" content={post.keywords || post.tags.join(", ")} />
         <meta name="author" content={post.author || "Ed3Hub Team"} />
         <link rel="canonical" href={`https://ed3hub.com/blog/${post.slug}`} />
+        
+        {/* Geo Meta Tags for Nigeria-based content */}
+        {isCloudNativePost && (
+          <>
+            <meta name="geo.region" content="NG" />
+            <meta name="geo.placename" content="Nigeria" />
+            <meta name="geo.position" content="9.0820;8.6753" />
+            <meta name="ICBM" content="9.0820, 8.6753" />
+          </>
+        )}
         
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
@@ -47,25 +58,63 @@ const BlogPost = () => {
         <meta name="twitter:description" content={post.excerpt} />
 
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": post.title,
-            "author": {
-              "@type": "Organization",
-              "name": post.author || "Ed3Hub"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Ed3Hub",
-              "url": "https://ed3hub.com"
-            },
-            "url": `https://ed3hub.com/blog/${post.slug}`,
-            "datePublished": post.date,
-            "keywords": post.keywords || post.tags.join(", "),
-            "description": post.excerpt,
-            "articleSection": post.category
-          })}
+          {JSON.stringify(
+            isCloudNativePost
+              ? {
+                  "@context": "https://schema.org",
+                  "@type": "BlogPosting",
+                  "headline": post.title,
+                  "alternativeHeadline": "How Cloud-Native Design Enables Scalable and Reliable Software Systems",
+                  "description": post.excerpt,
+                  "image": "https://ed3hub.com/images/blog/cloud-native-architecture.webp",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "Ed3hub"
+                  },
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "Ed3hub",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://ed3hub.com/images/logo.png"
+                    }
+                  },
+                  "mainEntityOfPage": `https://ed3hub.com/blog/${post.slug}`,
+                  "datePublished": post.date,
+                  "dateModified": post.date,
+                  "keywords": post.keywords,
+                  "articleSection": post.category,
+                  "inLanguage": "en",
+                  "contentLocation": {
+                    "@type": "Place",
+                    "name": "Nigeria",
+                    "geo": {
+                      "@type": "GeoCoordinates",
+                      "latitude": "9.0820",
+                      "longitude": "8.6753"
+                    }
+                  }
+                }
+              : {
+                  "@context": "https://schema.org",
+                  "@type": "Article",
+                  "headline": post.title,
+                  "author": {
+                    "@type": "Organization",
+                    "name": post.author || "Ed3Hub"
+                  },
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "Ed3Hub",
+                    "url": "https://ed3hub.com"
+                  },
+                  "url": `https://ed3hub.com/blog/${post.slug}`,
+                  "datePublished": post.date,
+                  "keywords": post.keywords || post.tags.join(", "),
+                  "description": post.excerpt,
+                  "articleSection": post.category
+                }
+          )}
         </script>
       </Helmet>
 
@@ -455,6 +504,20 @@ contract HelloWeb3 {
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Master Data Engineering?</h2>
                   <p className="text-gray-700 mb-4">
                     Join Ed3hub and learn from industry experts how to build scalable, secure, and modern data systems.
+                  </p>
+                  <Link 
+                    to="/courses" 
+                    className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    Explore Our Courses
+                  </Link>
+                </section>
+              )}
+              {isCloudNativePost && (
+                <section className="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Master Cloud-Native Development</h2>
+                  <p className="text-gray-700 mb-4">
+                    Join Ed3hub and learn how to architect, deploy, and manage scalable applications using modern cloud-native technologies and DevOps practices.
                   </p>
                   <Link 
                     to="/courses" 
