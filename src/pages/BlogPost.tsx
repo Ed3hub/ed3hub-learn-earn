@@ -37,14 +37,10 @@ const BlogPost = () => {
         <link rel="canonical" href={`https://ed3hub.com/blog/${post.slug}`} />
         
         {/* Geo Meta Tags for Nigeria-based content */}
-        {isCloudNativePost && (
-          <>
-            <meta name="geo.region" content="NG" />
-            <meta name="geo.placename" content="Nigeria" />
-            <meta name="geo.position" content="9.0820;8.6753" />
-            <meta name="ICBM" content="9.0820, 8.6753" />
-          </>
-        )}
+        {isCloudNativePost && <meta name="geo.region" content="NG" />}
+        {isCloudNativePost && <meta name="geo.placename" content="Nigeria" />}
+        {isCloudNativePost && <meta name="geo.position" content="9.0820;8.6753" />}
+        {isCloudNativePost && <meta name="ICBM" content="9.0820, 8.6753" />}
         
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
