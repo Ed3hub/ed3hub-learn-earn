@@ -1,0 +1,23 @@
+.course-card:hover .course-image {
+  transform: scale(1.05);
+}
+
+.course-card:hover .course-title {
+  color: #2b7fff;
+}
+
+.course-card:hover .course-arrow {
+  color: #2b7fff;
+}
+
+.course-image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.course-title {
+  transition: color 0.3s ease-in-out;
+}
+
+.course-arrow {
+  transition: color 0.3s ease-in-out;
+}

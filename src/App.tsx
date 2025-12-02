@@ -16,7 +16,10 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
-
+// the import below is for cohort courses
+const Cohort = lazy(() => import("./cohort/components/CourseEnrollmentPage.tsx"));
+const CohortDetailPage = lazy(() => import("./cohort/components/CourseDetailPage.tsx"));
+const EnrollmentForm = lazy(() => import("./enroll/EnrollmentForm.tsx"));
 const App = () => {
   useVisitorTracking();
   
@@ -35,6 +38,10 @@ const App = () => {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/join-us" element={<JoinUs />} />
             <Route path="*" element={<NotFound />} />
+            {/* the below is for cohort courses */}
+            <Route path="/cohort" element={<Cohort />} />
+            <Route path="/cohort/:slug" element={<CohortDetailPage />} />
+            <Route path="/enroll/:slug" element={<EnrollmentForm />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
