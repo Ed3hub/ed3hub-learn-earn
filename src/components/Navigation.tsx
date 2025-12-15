@@ -15,6 +15,7 @@ const Navigation = () => {
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/courses", label: "Courses" },
+    { path: "/cohort", label: "Cohort" },
     { path: "/blog", label: "Blog" },
     { path: "/join-us", label: "Join Us" },
   ];
