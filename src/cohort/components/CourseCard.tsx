@@ -1,4 +1,4 @@
-// src/courses/components/CourseCard.tsx
+// src/cohort/components/CourseCard.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { CourseDetail } from "../data";
@@ -32,13 +32,10 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
       <div className="course-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition duration-300 hover:shadow-xl cursor-pointer">
         {/* Course Image & Level Tag */}
         <div className="relative h-48">
-          {/* Placeholder for the actual image */}
           <div
             className="course-image w-full h-full bg-cover bg-center"
             style={{ backgroundImage: `url(${image})` }}
           >
-            {/* Mock image content/overlay to simulate the look
-          <div className="w-full h-full bg-gray-900 opacity-80"></div> */}
           </div>
 
           {/* Level Tag */}

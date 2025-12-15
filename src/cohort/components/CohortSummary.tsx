@@ -1,4 +1,4 @@
-// src/courses/components/CohortSummary.tsx
+// src/cohort/components/CohortSummary.tsx
 import React from "react";
 import { SummaryData } from "../data";
 

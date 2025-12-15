@@ -12,7 +12,6 @@ interface FormInputProps {
   children?: React.ReactNode;
 }
 
-// --- Reusable Input Component ---
 const FormInput: React.FC<FormInputProps> = ({
   label,
   id,
@@ -60,7 +59,6 @@ const FormInput: React.FC<FormInputProps> = ({
   );
 };
 
-// --- Main Enrollment Form Component ---
 const EnrollmentForm: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -77,7 +75,6 @@ const EnrollmentForm: React.FC = () => {
   return (
     <div className="flex justify-center p-4 sm:p-8">
       <div className="w-full max-w-2xl bg-white shadow-lg rounded-xl">
-        {/* Header Section */}
         <header className="bg-blue-600 text-white rounded-t-xl p-6">
           <button
             className="flex items-center text-sm mb-4 opacity-80 hover:opacity-100"
@@ -103,9 +100,7 @@ const EnrollmentForm: React.FC = () => {
           <p className="text-lg opacity-90">{course.title}</p>
         </header>
 
-        {/* Form Body */}
         <form className="p-6 sm:p-8">
-          {/* Form Fields */}
           <FormInput
             label="Full Name"
             id="fullName"
@@ -119,7 +114,6 @@ const EnrollmentForm: React.FC = () => {
             placeholder="your.email@example.com"
           />
 
-          {/* Note: In a real app, this might use a library for phone masking/validation */}
           <FormInput
             label="Phone Number"
             id="phoneNumber"
@@ -161,7 +155,7 @@ const EnrollmentForm: React.FC = () => {
               "Social Media",
               "Friend/Referral",
               "Online Search",
-              "Advertisment",
+              "Advertisement",
             ]}
           />
 
@@ -171,7 +165,6 @@ const EnrollmentForm: React.FC = () => {
             placeholder="e.g., New York, USA"
           />
 
-          {/* Buttons and Required Fields Text */}
           <div className="flex flex-col sm:flex-row justify-between pt-4">
             <button
               type="button"

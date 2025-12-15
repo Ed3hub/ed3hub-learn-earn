@@ -17,9 +17,10 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 // the import below is for cohort courses
-const Cohort = lazy(() => import("./cohort/components/CourseEnrollmentPage.tsx"));
-const CohortDetailPage = lazy(() => import("./cohort/components/CourseDetailPage.tsx"));
-const EnrollmentForm = lazy(() => import("./enroll/EnrollmentForm.tsx"));
+const Cohort = lazy(() => import("./cohort/components/CourseEnrollmentPage"));
+const CohortDetailPage = lazy(() => import("./cohort/components/CourseDetailPage"));
+const EnrollmentForm = lazy(() => import("./enroll/EnrollmentForm"));
+
 const App = () => {
   useVisitorTracking();
   

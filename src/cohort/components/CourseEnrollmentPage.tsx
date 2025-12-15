@@ -1,4 +1,4 @@
-// src/courses/components/CourseEnrollmentPage.tsx
+// src/cohort/components/CourseEnrollmentPage.tsx
 import React, { useEffect } from "react";
 import CohortHeader from "./CohortHeader";
 import CourseList from "./CourseList";
@@ -11,7 +11,6 @@ const CourseEnrollmentPage: React.FC = () => {
   }, []);
 
   return (
-    // Max width container for centering and overall page padding
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 bg-gray-50 min-h-screen">
       <CohortHeader />
 

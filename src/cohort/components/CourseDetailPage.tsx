@@ -1,4 +1,4 @@
-// src/courses/components/CourseDetailPage.tsx
+// src/cohort/components/CourseDetailPage.tsx
 import React, { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { courseDetailData } from "../data";
@@ -8,13 +8,12 @@ const CourseDetailPage: React.FC = () => {
   const { slug: courseSlug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
-  // SCROLL TO TOP ON MOUNT for a smooth transition
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Adds the smooth scrolling effect
+      behavior: "smooth",
     });
-  }, [courseSlug]); //
+  }, [courseSlug]);
 
   const course = courseDetailData.find((c) => c.slug === courseSlug);
 
@@ -36,7 +35,6 @@ const CourseDetailPage: React.FC = () => {
     price,
   } = course;
 
-  // Calculate enrollment percentage for the bar
   const [enrolled, total] = cohort.enrollment
     .split(" ")[0]
     .split("/")
@@ -54,7 +52,6 @@ const CourseDetailPage: React.FC = () => {
         </Link>
       </div>
 
-      {/* Main Content Container */}
       <div className="course-card max-w-4xl mx-auto bg-white shadow-xl rounded-b-xl mb-10">
         <div className="relative h-72 overflow-hidden">
           <div
@@ -72,7 +69,7 @@ const CourseDetailPage: React.FC = () => {
           <h1 className="text-l text-black mb-2">{title}</h1>
           <p className="text-md text-gray-600">{full_description}</p>
         </div>
-        {/* Meta Bar */}
+        
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-md px-4 sm:px-6 lg:px-8">
           {[
             {
@@ -165,7 +162,6 @@ const CourseDetailPage: React.FC = () => {
         </div>
 
         <div className="p-6 md:p-8 space-y-8">
-          {/* Cohort Information Card */}
           <div className="bg-blue-50 p-6 rounded-xl border-[#BEDBFF] border-1">
             <div className="flex gap-2 mb-4">
               <span className="text-[#155DFC]">
@@ -204,7 +200,6 @@ const CourseDetailPage: React.FC = () => {
               <div className="text-gray-900">{cohort.classSchedule}</div>
             </div>
 
-            {/* Enrollment Bar */}
             <div className="my-2">
               <div className="flex justify-between items-center text-md mb-2">
                 <span className="text-gray-700">Enrollment Status</span>
@@ -221,7 +216,6 @@ const CourseDetailPage: React.FC = () => {
             </div>
           </div>
 
-          {/* What You'll Learn Section */}
           <div>
             <h2 className="text-lg font-medium text-gray-800 mb-4">
               What You'll Learn
@@ -238,7 +232,6 @@ const CourseDetailPage: React.FC = () => {
             </ul>
           </div>
 
-          {/* Meet Your Instructor Card */}
           <div className="bg-[#F7F6FF] p-6 rounded-xl border-1 border-purple-200">
             <div className="flex gap-2 mb-4">
               <span className="text-purple-800 ">
@@ -258,7 +251,7 @@ const CourseDetailPage: React.FC = () => {
             </div>
             <div className="flex items-center md:items-start flex-col md:flex-row  justify-center">
               <img
-                src={instructor.image} // Replace with actual instructor image path
+                src={instructor.image}
                 alt={instructor.name}
                 className="w-28 h-28 rounded-full object-cover mr-6 flex-shrink-0"
               />
@@ -306,7 +299,7 @@ const CourseDetailPage: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* Course Price / Enrollment Footer */}
+          
           <div className="bg-gray-900 text-white p-5 flex justify-between items-center rounded-xl mt-8">
             <div>
               <div className="text-l text-gray-400">Course Price</div>

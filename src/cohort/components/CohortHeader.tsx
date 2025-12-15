@@ -1,4 +1,4 @@
-// src/courses/components/CohortHeader.tsx
+// src/cohort/components/CohortHeader.tsx
 import React from 'react';
 
 const CohortHeader: React.FC = () => {
