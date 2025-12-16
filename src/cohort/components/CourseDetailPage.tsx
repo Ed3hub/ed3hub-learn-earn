@@ -69,7 +69,7 @@ const CourseDetailPage: React.FC = () => {
           <h1 className="text-l text-black mb-2">{title}</h1>
           <p className="text-md text-gray-600">{full_description}</p>
         </div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-md px-4 sm:px-6 lg:px-8">
           {[
             {
@@ -299,13 +299,13 @@ const CourseDetailPage: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-gray-900 text-white p-5 flex justify-between items-center rounded-xl mt-8">
             <div>
               <div className="text-l text-gray-400">Course Price</div>
               <div className="text-xl text-gray-400">
-                <span className="text-white">$ {price.toLocaleString()}</span>{" "}
-                USD
+                <span className="text-white">N {price.toLocaleString()}</span>{" "}
+                Naira
               </div>
               <p className="text-md text-gray-400 mt-1">
                 Includes all course materials, lifetime access to recordings,

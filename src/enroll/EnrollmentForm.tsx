@@ -68,6 +68,11 @@ const EnrollmentForm: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.open("https://paystack.shop/pay/ed3hub-cohorts", "_blank");
+  };
+
   if (!course) {
     return <div className="text-center p-10 text-xl">Course not found.</div>;
   }
@@ -100,7 +105,7 @@ const EnrollmentForm: React.FC = () => {
           <p className="text-lg opacity-90">{course.title}</p>
         </header>
 
-        <form className="p-6 sm:p-8">
+        <form className="p-6 sm:p-8" onSubmit={handleSubmit}>
           <FormInput
             label="Full Name"
             id="fullName"
