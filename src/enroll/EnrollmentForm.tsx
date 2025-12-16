@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { courseDetailData } from "../cohort/data";
 
@@ -33,6 +33,7 @@ const FormInput: React.FC<FormInputProps> = ({
         <select
           id={id}
           name={id}
+          defaultValue=""
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm appearance-none bg-white pr-8"
         >
           <option value="" disabled>
@@ -63,14 +64,75 @@ const EnrollmentForm: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const course = courseDetailData.find((c) => c.slug === slug);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    window.open("https://paystack.shop/pay/ed3hub-cohorts", "_blank");
+    setIsLoading(true);
+    setError("");
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      Full_name: formData.get("fullName"),
+      Email_address: formData.get("email"),
+      Phone_number: formData.get("phoneNumber"),
+      Course_of_interest: formData.get("course"),
+      Experience_level: formData.get("experience"),
+      How_did_you_hear_about_this_cohort: formData.get("howHear"),
+      Location: formData.get("location"),
+    };
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/cohort_leads`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            Prefer: "return=minimal",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (response.ok) {
+        (e.target as HTMLFormElement).reset();
+        // Reset course field to original value
+        (document.getElementById("course") as HTMLSelectElement).value =
+          course.title;
+        window.open("https://paystack.shop/pay/ed3hub-cohorts", "_blank");
+      } else {
+        const errorText = await response.text();
+        console.error("API Error:", response.status, errorText);
+        setError(
+          `Failed to submit: ${
+            response.status === 401
+              ? "Authentication failed"
+              : response.status === 403
+              ? "Access denied"
+              : "Server error"
+          }`
+        );
+      }
+    } catch (error) {
+      console.error("Network Error:", error);
+      if (error.name === "TypeError" && error.message.includes("fetch")) {
+        setError(
+          "CORS error: Please check Supabase CORS settings or use a proxy."
+        );
+      } else {
+        setError("Network error. Please check your connection and try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (!course) {
@@ -125,23 +187,29 @@ const EnrollmentForm: React.FC = () => {
             placeholder="+1 (555) 000-0000"
           />
 
-          <FormInput
-            label="Course of Interest"
-            id="course"
-            placeholder={course.title}
-            isSelect
-          >
-            <option value={course.title} selected>
-              {course.title}
-            </option>
-            {courseDetailData
-              .filter((c) => c.id !== course.id)
-              .map((c) => (
-                <option key={c.id} value={c.title}>
-                  {c.title}
-                </option>
-              ))}
-          </FormInput>
+          <div className="mb-6">
+            <label
+              htmlFor="course"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Course of Interest <span className="text-red-500">*</span>
+            </label>
+            <select
+              id="course"
+              name="course"
+              defaultValue={course.title}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm appearance-none bg-white pr-8"
+            >
+              <option value={course.title}>{course.title}</option>
+              {courseDetailData
+                .filter((c) => c.id !== course.id)
+                .map((c) => (
+                  <option key={c.id} value={c.title}>
+                    {c.title}
+                  </option>
+                ))}
+            </select>
+          </div>
 
           <FormInput
             label="Experience Level"
@@ -170,6 +238,12 @@ const EnrollmentForm: React.FC = () => {
             placeholder="e.g., New York, USA"
           />
 
+          {error && (
+            <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+              {error}
+            </div>
+          )}
+
           <div className="flex flex-col sm:flex-row justify-between pt-4">
             <button
               type="button"
@@ -180,23 +254,52 @@ const EnrollmentForm: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="w-full sm:w-1/2 ml-0 sm:ml-3 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center justify-center transition duration-150 ease-in-out"
+              disabled={isLoading}
+              className="w-full sm:w-1/2 ml-0 sm:ml-3 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center justify-center transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit Enrollment
-              <svg
-                className="w-4 h-4 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
-              </svg>
+              {isLoading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  Submit Enrollment
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    ></path>
+                  </svg>
+                </>
+              )}
             </button>
           </div>
 

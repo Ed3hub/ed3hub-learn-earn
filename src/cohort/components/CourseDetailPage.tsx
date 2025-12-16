@@ -200,7 +200,7 @@ const CourseDetailPage: React.FC = () => {
               <div className="text-gray-900">{cohort.classSchedule}</div>
             </div>
 
-            <div className="my-2">
+            {/* <div className="my-2">
               <div className="flex justify-between items-center text-md mb-2">
                 <span className="text-gray-700">Enrollment Status</span>
                 <span className="text-gray-800">
@@ -213,7 +213,7 @@ const CourseDetailPage: React.FC = () => {
                   style={{ width: `${enrollmentPercentage}%` }}
                 ></div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div>

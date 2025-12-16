@@ -35,8 +35,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           <div
             className="course-image w-full h-full bg-cover bg-center"
             style={{ backgroundImage: `url(${image})` }}
-          >
-          </div>
+          ></div>
 
           {/* Level Tag */}
           <span className="absolute top-3 right-3 px-3 py-1 text-md font-normal rounded-full bg-white">
@@ -85,21 +84,21 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               <span className="mt-[-2px]">{enrollment}</span>
             </span>
           </div>
-          {/* Enrollment Section */}
+          {/* Enrollment Section
           <div className="mb-4">
             <div className="flex justify-between items-center text-md mb-1">
               <span className="text-gray-600">Enrollment</span>
               <span className="">{spotsLeft} spots left</span>
-            </div>
+            </div> */}
 
-            {/* Enrollment Bar */}
+          {/* Enrollment Bar
             <div className="h-2 bg-gray-200 rounded-full relative">
               <div
                 className="h-full bg-blue-500 rounded-full transition-all duration-500"
                 style={{ width: `${enrollmentPercentage}%` }}
               ></div>
             </div>
-          </div>
+          </div> */}
 
           {/* Instructor */}
           <div className="pt-3 border-t border-gray-100 mt-auto flex justify-between items-center text-md">

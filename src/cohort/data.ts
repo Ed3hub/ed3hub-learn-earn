@@ -298,7 +298,7 @@ export const courseDetailData: CourseDetail[] = [
 
 export const summaryData: SummaryData = {
   totalCourses: 5,
-  totalSpots: 148,
+  totalSpots: 150,
   studentsEnrolled: 110,
   cohortStart: "January 2026",
 };

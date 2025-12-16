@@ -9,7 +9,7 @@ interface CohortSummaryProps {
 const CohortSummary: React.FC<CohortSummaryProps> = ({ summary }) => {
   return (
     <div className="">
-      <div className="grid grid-cols-2 md:grid-cols-4 rounded-xl bg-white p-4 shadow-sm border-1 border-gray-200">
+      <div className="grid grid-cols-2 md:grid-cols-3 rounded-xl bg-white p-4 shadow-sm border-1 border-gray-200">
         {/* Total Courses */}
         <div className="py-2 px-4">
           <div className="text-md text-gray-600">Total Courses</div>
@@ -23,12 +23,12 @@ const CohortSummary: React.FC<CohortSummaryProps> = ({ summary }) => {
         </div>
 
         {/* Students Enrolled */}
-        <div className="py-2 px-4">
+        {/* <div className="py-2 px-4">
           <div className="text-md text-gray-600">Students Enrolled</div>
           <div className="text-lg text-gray-800">
             {summary.studentsEnrolled}
           </div>
-        </div>
+        </div> */}
 
         {/* Cohort Start */}
         <div className="py-2 px-4">
