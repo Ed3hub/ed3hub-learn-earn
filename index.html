@@ -49,7 +49,7 @@
     }
     </script>
 
-    <!-- Meta Pixel Code (MUST be in head) -->
+    <!-- Meta Pixel Script (keep inside head) -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -62,15 +62,21 @@
       fbq('init', '1180734463692321');
       fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1180734463692321&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
   </head>
 
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Meta Pixel Noscript (must be inside body) -->
+    <noscript>
+      <img 
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1180734463692321&ev=PageView&noscript=1"
+      />
+    </noscript>
   </body>
 </html>
