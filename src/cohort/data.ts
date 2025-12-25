@@ -6,6 +6,13 @@ import olabisiAdelaja from "../assets/olabisi_adelaja.png";
 import ayanfeOluwaniiseAkinboboye from "../assets/ayanfeoluwaniise_akinboboye.png";
 import akintolaOlawaleSolomon from "../assets/akintola_olawale_solomon.png";
 
+// Course images
+import contentWritingImg from "../assets/content_writing.png";
+import projectManagementImg from "../assets/project_management.png";
+import web3MarketingImg from "../assets/web3_marketing.png";
+import uiuxDesignImg from "../assets/uiux_design.png";
+import dataAnalysisImg from "../assets/data_analysis.png";
+
 export interface InstructorDetails {
   name: string;
   title: string;
@@ -60,8 +67,7 @@ export const courseDetailData: CourseDetail[] = [
       "Crafting clear, engaging, audience-targeted messages across platforms.",
     full_description:
       "Content writing is a strategic craft blending audience insight, clarity, and persuasion. It shapes messages across platforms, optimizes for search, informs, engages, and converts readers into loyal, informed customers.",
-    image:
-      "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29udGVudCUyMHdyaXRpbmd8ZW58MHx8MHx8fDA%3D",
+    image: contentWritingImg,
     duration: "10 weeks",
     weeks: "10",
     enrollment: "30",
@@ -108,8 +114,7 @@ export const courseDetailData: CourseDetail[] = [
       "Project management entails planning, coordinating, leading tasks to achieve objectives.",
     full_description:
       "Project management is the structured process of planning, coordinating, and leading tasks, people, and resources to achieve specific objectives within a defined scope, timeline, and budget. It involves setting goals, managing risks, tracking progress, and ensuring quality delivery while meeting stakeholder expectations.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvamVjdCUyMG1hbmFnZW1lbnR8ZW58MHx8MHx8fDA%3D",
+    image: projectManagementImg,
     duration: "12 weeks",
     weeks: "12",
     enrollment: "30",
@@ -157,8 +162,7 @@ export const courseDetailData: CourseDetail[] = [
       "Web3 marketing - decentralized, community-driven, token incentives, on-chain engagement.",
     full_description:
       "Web3 marketing focuses on promoting decentralized products and platforms using community-driven strategies, blockchain technology, and transparency. It emphasizes trust, user ownership, token-based incentives, and engagement through DAOs, NFTs, social communities, and on-chain analytics rather than traditional centralized advertising models.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1681400668073-a1947604dd36?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2ViM3xlbnwwfHwwfHx8MA%3D%3D",
+    image: web3MarketingImg,
     duration: "6-8 weeks",
     weeks: "6-8",
     enrollment: "30",
@@ -207,8 +211,7 @@ export const courseDetailData: CourseDetail[] = [
       "UI/UX design creates user-friendly interfaces enhancing usability and experience.",
     full_description:
       "UI/UX design is the process of creating visually appealing, user-friendly digital interfaces that enhance usability and user experience. It focuses on understanding user needs, designing intuitive layouts, improving accessibility, and ensuring seamless interaction between users and digital products or applications.",
-    image:
-      "https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dWklMkZ1eHxlbnwwfHwwfHx8MA%3D%3D",
+    image: uiuxDesignImg,
     duration: "12 weeks",
     weeks: "12",
     enrollment: "30",
@@ -254,8 +257,7 @@ export const courseDetailData: CourseDetail[] = [
       "Data analysis uncovers patterns to inform decisions and performance.",
     full_description:
       "Data analysis is the process of collecting, cleaning, and examining data to uncover patterns, trends, and insights. It involves using statistical methods, tools, and visualization techniques to support decision-making, solve problems, and improve performance across various fields and industries. ",
-    image:
-      "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YSUyMGFuYWx5c2lzfGVufDB8fDB8fHww",
+    image: dataAnalysisImg,
     duration: "12 weeks",
     weeks: "12",
     enrollment: "30",
