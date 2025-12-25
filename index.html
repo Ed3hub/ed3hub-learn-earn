@@ -9,7 +9,7 @@
     <meta name="description" content="Master Web3 development, data engineering, cybersecurity, machine learning, technical writing, and more with Ed3Hub. Join our community-driven learning platform, earn rewards while learning, and advance your tech career with expert-led courses." />
     <meta name="author" content="Ed3Hub" />
     <meta name="keywords" content="Web3 courses, blockchain education, data engineering training, cybersecurity courses, machine learning, technical writing, creative writing, UI/UX design, cloud computing, DevOps, digital marketing, product management, online learning platform, earn while learning, tech education" />
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Ed3Hub - Learn Web3, Data Engineering, Cybersecurity & More | Earn Rewards" />
     <meta property="og:description" content="Master Web3 development, data engineering, cybersecurity, machine learning, and more with Ed3Hub. Join our community-driven learning platform and earn rewards while learning." />
@@ -24,11 +24,11 @@
     <meta name="twitter:title" content="Ed3Hub - Learn Web3, Data Engineering, Cybersecurity & More" />
     <meta name="twitter:description" content="Master Web3 development, data engineering, cybersecurity, machine learning, and more with Ed3Hub. Earn rewards while learning." />
     <meta name="twitter:image" content="/lovable-uploads/01ea4b2e-e405-455d-bcd2-0b2f647fc6c2.png" />
-    
+
     <!-- Additional SEO Meta Tags -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://ed3hub.com" />
-    
+
     <!-- Structured Data for Organization -->
     <script type="application/ld+json">
     {
@@ -48,10 +48,35 @@
       }
     }
     </script>
+
+    <!-- Meta Pixel Script (keep inside head) -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1180734463692321');
+      fbq('track', 'PageView');
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Meta Pixel Noscript (must be inside body) -->
+    <noscript>
+      <img 
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1180734463692321&ev=PageView&noscript=1"
+      />
+    </noscript>
   </body>
 </html>
