@@ -78,9 +78,18 @@ const EmailCollectionForm = ({ isOpen, onClose, title, description }: EmailColle
           });
         }
       } else {
+        // Send welcome email (don't await - fire and forget)
+        fetch('https://yqkxwxoursqvxowrgvlw.supabase.co/functions/v1/send-welcome-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name: result.data.name, email: result.data.email }),
+        }).catch(err => console.error('Failed to send welcome email:', err));
+
         toast({
           title: "Thank you!",
-          description: "We'll notify you when Ed3Hub is ready.",
+          description: "We'll notify you when Ed3Hub is ready. Check your email for confirmation!",
         });
         setName("");
         setEmail("");
