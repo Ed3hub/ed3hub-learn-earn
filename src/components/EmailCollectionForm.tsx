@@ -61,11 +61,22 @@ const EmailCollectionForm = ({ isOpen, onClose, title, description }: EmailColle
         ]);
 
       if (error) {
-        toast({
-          title: "Error",
-          description: "Failed to save your information. Please try again.",
-          variant: "destructive",
-        });
+        // Check if it's a duplicate email error (unique constraint violation)
+        if (error.code === '23505' || error.message?.includes('duplicate') || error.message?.includes('unique')) {
+          toast({
+            title: "You're already on the list!",
+            description: "Your information is already saved. We'll notify you when Ed3Hub is ready.",
+          });
+          setName("");
+          setEmail("");
+          onClose();
+        } else {
+          toast({
+            title: "Error",
+            description: "Failed to save your information. Please try again.",
+            variant: "destructive",
+          });
+        }
       } else {
         toast({
           title: "Thank you!",
